@@ -1,4 +1,4 @@
-use std::{fmt,path::Path, str::FromStr};
+use std::{path::Path, str::FromStr};
 
 use clap::Parser;
 #[derive(Debug, Parser)]
@@ -83,8 +83,8 @@ impl OutputFormat {
     }
 }
 
-impl fmt::Display for OutputFormat {//实现Display trait 用于格式化输出
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f,"{}",Into::<&str>::into(self.as_str()))
-    }
-}
+// impl fmt::Display for OutputFormat {//实现Display trait 用于格式化输出
+//     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+//         write!(f,"{}",self.as_str())
+//     }
+// }
