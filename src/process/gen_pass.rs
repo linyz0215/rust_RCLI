@@ -1,12 +1,13 @@
 use rand::prelude::IndexedRandom;
 use rand::prelude::SliceRandom;
-const UPPER: &[u8] = b"ABCDEFGHJKLMNPQRSTUVWXYZ";
+use anyhow::Result;
+const UPPER: &[u8]= b"ABCDEFGHJKLMNPQRSTUVWXYZ";
 const LOWER: &[u8] = b"abcdefghijkmnopqrstuvwxyz";
 const NUMBER: &[u8] = b"123456789";
 const SYMBOL: &[u8] = b"!@#$%^&*_";
 use zxcvbn::zxcvbn;
-pub fn process_genpass(length: u8, upper:bool, lower: bool, number: bool, symbol: bool) -> anyhow::Result<()> {
-    let mut rng = rand::thread_rng();
+pub fn process_genpass(length: u8, upper:bool, lower: bool, number: bool, symbol: bool) -> Result<()> {
+    let mut rng = rand::rng();
     let mut password = Vec::new();
     let mut chars = Vec::new();
     if upper {
